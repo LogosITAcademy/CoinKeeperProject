@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- Root-Model -->
+    <script src="scripts/app.js"></script>
+    <!-- urlRouterProvider -->
+    <script src="scripts/config.js"></script>
+    <!-- Navigation controllers -->
+    <script src="scripts/controllers/navCtrl.js"></script>
+    <!-- Registration & Login controllers -->
+    <script src="scripts/controllers/reglogCtrl.js"></script>
+    <!-- Main-Page controllers -->
+    <script src="scripts/controllers/mainCtrl.js"></script>
+    <!--  Factories -->
+    <script src="scripts/services/factory.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--  Castom Css -->
+    <link rel="stylesheet" href="style/css/navbar.css">
+    <link rel="stylesheet" href="style/css/reglog.css">
+    <base href="/">
+</head>
+
+<body ng-app="CoinKeeperApp">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" id="navbar" ng-controller="navCtrl as nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target="#myNavbar" ng-disabled="nav.hamburger_state">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <ul class="nav navbar-nav" ng-hide="nav.header_data">
+                <li><a>User: {{nav.username}} {{nav.usersurname}}</a></li>
+                <li><a>Balance: {{nav.balance}} {{nav.currency}}</a></li>
+                <li><a>Expences:0.00</a></li>
+            </ul>
+            <!--   <a class="navbar-brand pull-right" id="logo" href="#">CoinKeeper</a> -->
+        </div>
+    </nav>
+    <!-- <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Seating</li>
+        <li><a href="#">sads</li>
+      </ul>
+    </div>  -->
+    <!--  <ul>
+        <li><a ui-sref="reglogpage">StartPage</a></li>
+        <li><a ui-sref="mainpage">Mainpage</a></li>
+      </ul> -->
+    <div ui-view></div>
+</body>
+
+</html>

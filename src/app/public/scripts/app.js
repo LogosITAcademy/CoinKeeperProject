@@ -1,0 +1,1 @@
+angular.module('CoinKeeperApp', ["ui.router","Navigation","RegLog","Main"]);

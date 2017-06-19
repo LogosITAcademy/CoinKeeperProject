@@ -1,0 +1,125 @@
+<div class="container-fluid reglog_wrapper">
+  <!-- Alert-Error-Modal -->
+<div class="alert alert-success alert-dismissable" id="registration_aler_box" ng-hide="reglog.registration_aler_box">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <strong>Registration</strong> success.
+  </div>
+  <div class="alert alert-danger alert-dismissable" ng-hide="reglog.danger_registration_aler_box">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <strong>This email is already used </strong>
+  </div>
+<div class="container" id="reglog_box">
+<div class="form-group" id="greeting_text_h1">
+	<p class="text-center">organise your budget</p><p class="text-center">in a better way!</p>
+</div>
+    <p class="text-center greeting_text">.be smart .be sexy .be <span>coinkeeper</span></p>
+	
+  	<div class="form-group text-center" id="modal_btn">
+
+	<button type="button" class="btn btn_Signup" data-toggle="modal" data-target="#registration" data-whatever="@mdo">Sign up</button>
+	<button type="button" class="btn btn_Signin" data-toggle="modal" data-target="#login" data-whatever="@mdo">Sign in</button>
+
+	</div>
+	
+
+	<!-- Modal Registration -->
+  <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title" id="exampleModalLabel">Registration</h3>
+      </div>
+
+      <div class="modal-body">
+     
+       <form name="SignUpForm" novalidate >
+
+      <div class="form-group"  ng-class="{ 'has-error' : SignUpForm.signupName.$invalid && !SignUpForm.signupName.$pristine }">
+       <label class="control-label" for="signupName">Your name*</label>
+       <input id="signupName" type="text" name="signupName"  class="form-control text-capitalize" ng-model="reglog.signupName" ng-minlength="2" ng-maxlength="8"required>
+         <p ng-show="SignUpForm.signupName.$error.minlength" class="help-block">You name is too short.</p>
+         <p ng-show="SignUpForm.signupName.$error.maxlength" class="help-block">You name  is too long.</p>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : SignUpForm.signupSurname.$invalid && !SignUpForm.signupSurname.$pristine }">
+       <label class="control-label" for="signupsurname">Your surname*</label>
+       <input id="signupSurname" type="text" name="signupSurname" class="form-control text-capitalize" ng-model="reglog.signupsurname" ng-minlength="3" required>
+        <p ng-show="SignUpForm.signupSurname.$invalid && !SignUpForm.signupSurname.$pristine" class="help-block">You surname is required or short.</p>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : SignUpForm.signupEmail.$invalid && !SignUpForm.signupEmail.$pristine }">
+       <label class="control-label" for="signupEmail">Email*</label>
+       <input id="signupEmail" type="email" name="signupEmail"  class="form-control" ng-model="reglog.signupEmail" required>
+        <p ng-show="SignUpForm.signupEmail.$invalid && !SignUpForm.signupEmail.$pristine" class="help-block">Enter a valid email.</p>
+      </div>
+      <div class="form-group" ng-class="{'has-error' : SignUpForm.signupPassword.$invalid && !SignUpForm.signupPassword.$pristine }">
+       <label class="control-label" for="signupPassword">Password*</label>
+       <input id="signupPassword" type="password" name="signupPassword" class="form-control" placeholder="at least 6 characters"  ng-model="reglog.signupPassword" ng-minlength="6" required>
+         <p ng-show="SignUpForm.signupPassword.$error.minlength" class="help-block">You password is too short.</p>
+      </div>
+      <div class="form-group">
+       <label class="control-label" for="signupbalance">Balance</label>
+       <input id="signupBalance" type="number" class="form-control" ng-model="reglog.signupbalance" ng-focus="reglog.showSuggestions=true">
+      </div>
+      <div class="form-group" ng-show="reglog.signupbalance">
+      <label for="signupCurrency">Currency</label>
+      <select class="form-control" ng-model="reglog.signupCurrency">
+        <option>UAH</option>
+        <option>USD</option>
+        <option>EUR</option>
+      </select>
+    </div>
+    <!-- {{reglog.signupName}} -->
+
+      <div class="form-group">
+       <button id="signupSubmit" type="submit" class="btn btn-success btn-block" data-dismiss="modal" ng-click="reglog.SignUp()"  ng-disabled="SignUpForm.$invalid">Create your account</button>
+      </div>
+       
+     </form>
+     
+      </div>
+      <!-- <div class="modal-footer">
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- Modal Registration End -->
+
+<!-- Modal Login -->
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title" id="exampleModalLabel">Autorization</h3>
+      </div>
+
+      <div class="modal-body">
+     
+       <form name="SignInForm" novalidate>
+
+      <div class="form-group" ng-class="{ 'has-error' : SignInForm.signinEmail.$invalid && !SignInForm.signinEmail.$pristine }">
+       <label class="control-label" for="signinEmail">Email</label>
+       <input id="signinEmail" type="email" name="signinEmail"  class="form-control" ng-model="reglog.signinEmail" required>
+        <p ng-show="SignInForm.signinEmail.$invalid && !SignInForm.signinEmail.$pristine" class="help-block">Enter a valid email.</p>
+      </div>
+      <div class="form-group" ng-class="{'has-error' : SignInForm.signinPassword.$invalid && !SignInForm.signinPassword.$pristine }">
+       <label class="control-label"  for="signinPassword">Password</label>
+       <input id="signinPassword" type="password" name="signinPassword" class="form-control" ng-model="reglog.signinPassword" ng-minlength="6">
+        <p ng-show="SignInForm.signinPassword.$error.minlength" class="help-block">You password is no corect</p>
+      </div>
+      <div class="form-group">
+       <button id="signinSubmit" type="submit" class="btn btn-success btn-block" ng-disabled="SignInForm.$invalid" ng-click="reglog.signIn()">Login</button>
+      </div>
+       
+     </form>
+      </div>
+     <!--  <div class="modal-footer">
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- Modal Login End -->
+  
+</div>
+</div>
+</div>

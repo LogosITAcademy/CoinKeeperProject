@@ -1,0 +1,33 @@
+@special-blue:#3498db;
+#navbar{
+    margin-bottom:0;
+
+	.navbar-toggle {
+     display:inline; 
+}
+
+#logo {
+    color: white;;
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    border: solid 3px @special-blue;
+    background-color: @special-blue;
+    margin-right:-16px;
+}
+
+@media only screen and (max-width: 767px) {
+    #logo {
+        color:@special-blue;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: -3px;
+        background-color:inherit;
+       
+    }
+  }
+
+
+
+
+}
