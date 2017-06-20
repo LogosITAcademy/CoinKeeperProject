@@ -1,0 +1,38 @@
+#navbar{
+  background-color: #17da91;
+}
+#navbar .navbar-toggle{
+  display: inline;
+}
+#navbar .push_menu{
+  margin-top: 25px;
+}
+#navbar .nav_img{
+  width:70px;
+  height:57px;
+  padding-right: 10px;
+}
+#navbar .button_wrap{
+  border:2px solid white;
+}
+#navbar #logo {
+  color:white;
+  font-family:'Pacifico',cursive;
+  font-size:2em;
+  border:solid 3px #3498db;
+  background-color:#3498db;
+  margin-right:-16px;
+}
+@media only screen and (max-width: 767px){
+  #navbar #logo {
+    color:#3498db;
+    border:none;
+    position:absolute;
+    top:0;
+    left:-3px;
+    background-color:inherit;
+  }
+}
+#mainpage_wrapper {
+  padding-left:100px;
+}
