@@ -1,0 +1,186 @@
+.butPlus {
+    width: 66px;
+    height: 66px;
+    text-align: center;
+    border: 2px solid green;
+    display: table;
+    border-radius: 50%;
+}
+
+.rowSavings {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.rowSpend {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.butPlusSpend {
+    width: 66px;
+    height: 66px;
+    text-align: center;
+    border: 2px solid blue;
+    display: table;
+    border-radius: 50%;
+}
+
+.all-circles {
+    display: flex;
+    list-style-type: none;
+}
+
+.all-circles li {
+    display: inline;
+}
+
+.circle-button {
+    position: relative;
+    display: table;
+    text-align: center;
+    margin: 50px 35px;
+}
+
+.savings-name {
+    position: absolute;
+    top: -19px;
+    right: 0;
+    left: 0
+}
+
+.spend-name {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.savings-ammount {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.butMEGA {
+    width: 66px;
+    height: 66px;
+    /* padding: 10px 50px; */
+    border: 2px solid green;
+    display: table;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.butMEGA img {
+    height: 33px;
+    vertical-align: baseline;
+    margin-top: 13px;
+}
+
+button {
+    background: transparent;
+    border: none;
+    opacity: 0.5;
+}
+
+button:hover {
+    opacity: 1
+}
+
+.modal-header h4 {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px
+}
+
+.modal-header {
+    border-bottom: 1px solid dimgray;
+    margin-bottom: 20px
+}
+
+.form-group {
+    width: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    border-bottom: 1px solid dimgray;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.form-control:focus {
+    border-color: dimgray;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.modal-footer {
+    text-align: center
+}
+
+.include-bal input {
+    margin-left: 10px;
+    vertical-align: sub;
+}
+
+.choose-cur {
+    margin-bottom: 20px
+}
+
+.choose-icon {
+    width: 64px;
+    height: 64px;
+    border: 1px solid dimgray;
+    border-radius: 50%;
+    text-align: center;
+    padding: 14px 8px;
+    position: absolute;
+    top: 107px;
+    right: 14px;
+    background: white;
+}
+
+.modal-body li {
+    display: inline;
+    margin: 0 9px
+}
+
+.modal-body ul {
+    text-align: center;
+    padding: 0;
+}
+
+.modal-body img {
+    opacity: 0.5
+}
+
+.modal-body img:hover {
+    opacity: 1
+}
+
+#myModal2 .butMEGA {
+    margin: auto;
+    text-align: center;
+}
+.errorinput{
+    border: 1px solid red;
+}

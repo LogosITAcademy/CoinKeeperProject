@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="popUps">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>popup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/popup/popup-style.css">
+</head>
+
+<body ng-controller="popupsController">
+<span>{{balance}}</span>
+<div class="row rowSavings">
+    <ul class='all-circles'>
+        <li ng-repeat="item in circles">
+            <div class="circle-button">
+                <div class="savings-name">{{item.savingsName}}</div>
+
+                <div class="butMEGA"><img ng-src="{{item.img}}" alt=""></div>
+                <div class="savings-ammount">{{item.savingsAmmount}}{{item.currency}}</div>
+            </div>
+        </li>
+    </ul>
+    <div class="circle-button" data-toggle="modal" data-target="#myModal" data-ng-click="resetDropDown()">
+        <div class="butPlus">+</div>
+    </div>
+</div>
+<div class="row rowSpend">
+    <ul class='all-circles'>
+        <li ng-repeat="item in circlesSpend">
+            <div class="circle-button">
+
+
+                <div class="butMEGA"><img ng-src="{{item.img}}" alt=""></div>
+                <div class="spend-name">{{item.spendName}}</div>
+            </div>
+        </li>
+    </ul>
+    <div class="circle-button" data-toggle="modal" data-target="#myModal3" data-ng-click="setImg()">
+        <div class="butPlusSpend">+</div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form ng-submit='addCircle() && addItem.$valid' name='addItem'>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="submit" id='modal-submit' ng-click="submitted=true"><img src="../../img/popup-img/submit.png" alt="">
+                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"><img src="../../img/popup-img/close.png" alt=""></span></button>
+                    <h4 class="modal-title" id="myModalLabel">Where do you keep money?</h4>
+                    <div class='choose-icon' data-toggle="modal" data-target="#myModal2">choose icon</div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                               ng-class="{ errorinput: submitted && addItem.inputName.$error.required }"
+                               name="inputName" id="inputName" ng-model="savingsName" ng-required='true'
+                               placeholder="Name">
+                        <span ng-show="submitted && addItem.inputName.$error.required">Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="balance" ng-model="savingsAmmount"
+                               placeholder="Account balance"></div>
+                    <div class="modal-footer">
+                        <div class="choose-cur col-lg-6 col-md-6 col-sm-12 col-xs-12"><span>choose currency</span>
+                            <select name="mySelect" id="mySelect"
+                                    ng-options="option.name for option in data.availableOptions track by option.id"
+                                    ng-model="data.selectedOption"
+                                    ng-init="selectedOption.name = data.availableOptions[2]">
+
+                            </select>
+                        </div>
+                        <div class="include-bal col-lg-6 col-md-5 col-sm-12 col-xs-12">
+                            <label for="inc">include in total balance</label>
+                            <input type="checkbox" id='inc' ng-model="checked"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form name="addSpend" ng-submit='addSpendCircle() && addSpend.$valid' >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"><img src="../../img/popup-img/close.png" alt=""></span></button>
+                    <button type="submit" ng-click="submitted=true"><img src="../../img/popup-img/submit.png" alt="" ></button>
+                    <h4 class="modal-title" id="myModalLabel">Where do you spend money? </h4>
+                    <div class='choose-icon' data-toggle="modal" data-target="#myModal2">choose icon</div>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="inputSpend" id="inputName" placeholder="Name" ng-model="spendName"
+                               ng-class="{ errorinput: submitted && addISpend.inputSpend.$error.required }" ng-required='true'>
+                        <span ng-show="submitted && addSpend.inputSpend.$error.required">Name is required</span>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form ng-submit='addCircle()'>
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"><img src="../../img/popup-img/submit.png" alt=""></span></button>
+
+                    <h4 class="modal-title" id="myModalLabel">Choose icon</h4></div>
+                <div class="modal-body">
+                    <div class="row">
+                        <ul>
+                            <li ng-click="img_icon ='../../img/popup-img/bar.png'"><img ng-src="../../img/popup-img/bar.png" alt=""></li>
+                            <li ng-click="img_icon = '../../img/popup-img/cloth.png'"><img ng-src="../../img/popup-img/cloth.png" alt=""></li>
+                            <li ng-click="img_icon = '../../img/popup-img/woman.png'"><img ng-src="../../img/popup-img/woman.png" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li ng-click="img_icon = '../../img/popup-img/money.png'"><img ng-src="../../img/popup-img/money.png" alt=""></li>
+                            <li ng-click="img_icon = '../../img/popup-img/shopping.png'"><img ng-src="../../img/popup-img/shopping.png" alt=""></li>
+                            <li ng-click="img_icon = '../../img/popup-img/wallet.png'"><img ng-src="../../img/popup-img/wallet.png" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="butMEGA"><img ng-src="{{img_icon}}" alt=""></div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="../../scripts/popup/popups.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
