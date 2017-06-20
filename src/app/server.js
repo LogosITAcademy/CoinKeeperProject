@@ -3,22 +3,19 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var mysql = require('mysql');
-
 var app = express();
-
 
 //MYSQL CONNECTION
 var connection =  mysql.createConnection({
     host:"localhost",
     user: "root",
-    password:"Your password MYSQL",
+    password:"123456789max",
     database:"coinkeeperdb"
 });
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(express.static(__dirname + '/public'));
 app.engine('html', require('ejs').renderFile);
-
 
 app.use(bodyParser.json());      
 app.use(bodyParser.urlencoded({extended: true}));
@@ -42,8 +39,7 @@ app.get('/',function(req,res){
 //LOGIN
 app.post('/autorization',function(req,res){
     connection.query('select * from users',(err,rows)=>{
-        if (err)
-        throw (err);
+        if (err) throw (err);
         var foundUser = undefined;
         for(var i = 0;i < rows.length; i++){
             var user = rows[i];
@@ -83,16 +79,11 @@ app.post('/userdata',function(req,res){
                         balance: sess.balance,
                         currency: sess.currency
                     }
-
                      res.json(UserData);
             };
-
         };
-
     })
 });
-
-
 
 //REGISTRATION
 app.post('/registration',function(req,res){
@@ -106,29 +97,20 @@ app.post('/registration',function(req,res){
         user_photo:'default.png'
 };
 
-    
 connection.query('insert into users set ?',signUpData,(err)=>{
     if(err){
         res.send(203)
-    }else{
+    }
+    else{
             console.log('regist success',req.body);
             res.send(200);  
         }
-    
     });
-  
 });
-
-
-
 
 app.get('*',function(req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
 });
-
-
-
-
 
 var port = 8080;
 var server = app.listen(port, function(){

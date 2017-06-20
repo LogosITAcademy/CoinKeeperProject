@@ -1,1 +1,1 @@
-angular.module('CoinKeeperApp', ["ui.router","Navigation","RegLog","Main"]);
+angular.module('CoinKeeperApp', ["ui.router","UserData","RegLog"]);

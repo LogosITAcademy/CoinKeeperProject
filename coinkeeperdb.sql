@@ -11,6 +11,3 @@ create table if not exists users (
     user_balance int,
     user_balance_currency varchar(3)
 );
-select * from users;
-SET SQL_SAFE_UPDATES = 0;
-delete from users;

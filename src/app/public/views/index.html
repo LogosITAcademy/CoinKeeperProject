@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>CoinKeeper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -11,12 +11,10 @@
     <script src="scripts/app.js"></script>
     <!-- urlRouterProvider -->
     <script src="scripts/config.js"></script>
-    <!-- Navigation controllers -->
-    <script src="scripts/controllers/navCtrl.js"></script>
+    <!-- Userdata controllers -->
+    <script src="scripts/controllers/userdataCtrl.js"></script>
     <!-- Registration & Login controllers -->
     <script src="scripts/controllers/reglogCtrl.js"></script>
-    <!-- Main-Page controllers -->
-    <script src="scripts/controllers/mainCtrl.js"></script>
     <!--  Factories -->
     <script src="scripts/services/factory.js"></script>
     <!-- Bootstrap -->
@@ -30,8 +28,8 @@
 </head>
 
 <body ng-app="CoinKeeperApp">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" id="navbar" ng-controller="navCtrl as nav">
+    <!-- Navigation & Userdata -->
+    <nav class="navbar navbar-default" id="navbar" ng-controller="userdataCtrl as userdata">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target="#myNavbar" ng-disabled="nav.hamburger_state">
@@ -41,23 +39,12 @@
                 </button>
             </div>
             <ul class="nav navbar-nav" ng-hide="nav.header_data">
-                <li><a>User: {{nav.username}} {{nav.usersurname}}</a></li>
-                <li><a>Balance: {{nav.balance}} {{nav.currency}}</a></li>
+                <li><a>User: {{userdata.username}} {{userdata.usersurname}}</a></li>
+                <li><a>Balance: {{userdata.balance}} {{userdata.currency}}</a></li>
                 <li><a>Expences:0.00</a></li>
             </ul>
-            <!--   <a class="navbar-brand pull-right" id="logo" href="#">CoinKeeper</a> -->
         </div>
     </nav>
-    <!-- <div class="collapse navbar-collapse" id="myNavbar">
-     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Seating</li>
-        <li><a href="#">sads</li>
-      </ul>
-    </div>  -->
-    <!--  <ul>
-        <li><a ui-sref="reglogpage">StartPage</a></li>
-        <li><a ui-sref="mainpage">Mainpage</a></li>
-      </ul> -->
     <div ui-view></div>
 </body>
 

@@ -8,19 +8,17 @@
     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
     <strong>This email is already used </strong>
   </div>
+   <!-- End Alert-Error-Modal -->
 <div class="container" id="reglog_box">
 <div class="form-group" id="greeting_text_h1">
 	<p class="text-center">organise your budget</p><p class="text-center">in a better way!</p>
 </div>
     <p class="text-center greeting_text">.be smart .be sexy .be <span>coinkeeper</span></p>
 	
-  	<div class="form-group text-center" id="modal_btn">
-
+<div class="form-group text-center" id="modal_btn">
 	<button type="button" class="btn btn_Signup" data-toggle="modal" data-target="#registration" data-whatever="@mdo">Sign up</button>
 	<button type="button" class="btn btn_Signin" data-toggle="modal" data-target="#login" data-whatever="@mdo">Sign in</button>
-
-	</div>
-	
+</div>
 
 	<!-- Modal Registration -->
   <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -30,11 +28,8 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h3 class="modal-title" id="exampleModalLabel">Registration</h3>
       </div>
-
       <div class="modal-body">
-     
-       <form name="SignUpForm" novalidate >
-
+    <form name="SignUpForm" novalidate >
       <div class="form-group"  ng-class="{ 'has-error' : SignUpForm.signupName.$invalid && !SignUpForm.signupName.$pristine }">
        <label class="control-label" for="signupName">Your name*</label>
        <input id="signupName" type="text" name="signupName"  class="form-control text-capitalize" ng-model="reglog.signupName" ng-minlength="2" ng-maxlength="8"required>
@@ -68,17 +63,11 @@
         <option>EUR</option>
       </select>
     </div>
-    <!-- {{reglog.signupName}} -->
-
       <div class="form-group">
        <button id="signupSubmit" type="submit" class="btn btn-success btn-block" data-dismiss="modal" ng-click="reglog.SignUp()"  ng-disabled="SignUpForm.$invalid">Create your account</button>
       </div>
-       
      </form>
-     
       </div>
-      <!-- <div class="modal-footer">
-      </div> -->
     </div>
   </div>
 </div>
@@ -92,11 +81,8 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h3 class="modal-title" id="exampleModalLabel">Autorization</h3>
       </div>
-
       <div class="modal-body">
-     
        <form name="SignInForm" novalidate>
-
       <div class="form-group" ng-class="{ 'has-error' : SignInForm.signinEmail.$invalid && !SignInForm.signinEmail.$pristine }">
        <label class="control-label" for="signinEmail">Email</label>
        <input id="signinEmail" type="email" name="signinEmail"  class="form-control" ng-model="reglog.signinEmail" required>
@@ -110,16 +96,13 @@
       <div class="form-group">
        <button id="signinSubmit" type="submit" class="btn btn-success btn-block" ng-disabled="SignInForm.$invalid" ng-click="reglog.signIn()">Login</button>
       </div>
-       
      </form>
       </div>
-     <!--  <div class="modal-footer">
-      </div> -->
     </div>
   </div>
 </div>
 <!-- Modal Login End -->
-  
+
 </div>
 </div>
 </div>

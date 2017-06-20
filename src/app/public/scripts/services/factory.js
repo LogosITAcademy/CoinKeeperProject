@@ -5,17 +5,16 @@ angular.module('CoinKeeperApp').factory("CoinKeeperAPI", function ($http) {
                     var result = response.data;
                     return result;
             })
-        }
-        , autorizationUser: function (signInData) {
+        },
+         autorizationUser: function (signInData) {
             $http.post('/autorization', signInData).then(function (response) {
                 if (response.data == "done") {
                     console.log(response.data);
                     window.location.replace("/");
                 }
             })
-        }
-        , getUserData: function () {
-            
+        },
+        getUserData: function () {
            return $http.post('/userdata').then(function(response){
             var result = response.data;
             return result;
