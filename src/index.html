@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- Root-Model -->
+    <script src="scripts/app.js"></script>
+    <!-- urlRouterProvider -->
+    <script src="scripts/config.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <!--  Castom Css -->
+    <link rel="stylesheet" href="style/css/navbar.css">
+    <link rel="stylesheet" href="style/css/reglog.css">
+    <link rel="stylesheet" href="style/css/sidebar.css">
+    <base href="/"> </head>
+
+<body ng-app="CoinKeeperApp">
+    <div>
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="btn navbar-toggle push_menu" data-toggle="" data-target="#mySidebar" ng-disabled=""> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+               
+            </div>
+        </nav>
+        <div id="sidebar_wrap">
+            <div class="row" id="mySidebar">
+                <div class="wrapper">
+                    <div class="side-bar">
+                        <ul>
+                            <li class="menu-head"> <a href="#">Content<span class="glyphicon glyphicon-remove pull-right" id="close_sidebar"></span></a> </li>
+                            <div class="menu">
+                                <li> <a href="settings" class="nav_item_link">My account <span class="glyphicon glyphicon-user pull-right"></span></a> </li>
+                                <li> <a href="mainpage" class="nav_item_link active">Main page <span class="glyphicon glyphicon-usd pull-right"></span></a> </li>
+                                <li> <a href="history" class="nav_item_link">History<span class="glyphicon glyphicon-time pull-right"></span></a> </li>
+                                <li> <a href="statistic" class="nav_item_link">Statistic<span class="g	glyphicon glyphicon-stats pull-right"></span></a> </li>
+                                <li> <a class="nav_item_link" ng-click="nav.logout()">Log out <span class="glyphicon glyphicon-log-out pull-right"></span></a> </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-view></div>
+</body>
+
+</html>
