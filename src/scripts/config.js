@@ -14,7 +14,6 @@
          url: "/settings"
          , templateUrl: "/settings.html"
      })
-    
      $locationProvider.html5Mode(true);
      $qProvider.errorOnUnhandledRejections(false);
  })

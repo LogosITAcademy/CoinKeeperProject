@@ -10,8 +10,7 @@ $(document).ready(function () {
         else {
             $(".wrapper").toggleClass("active");
         }
-    });
-    
+    });  
       $(".nav_item_link").on("click", function() {
       $(".nav_item_link").removeClass("active");
       $(this).addClass("active");
