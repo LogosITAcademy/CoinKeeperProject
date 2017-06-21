@@ -1,0 +1,24 @@
+#navbar {
+  margin-bottom: 0;
+}
+#navbar .navbar-toggle {
+  display: inline;
+}
+#navbar #logo {
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+  border: solid 3px #3498db;
+  background-color: #3498db;
+  margin-right: -16px;
+}
+@media only screen and (max-width: 767px) {
+  #navbar #logo {
+    color: #3498db;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: -3px;
+    background-color: inherit;
+  }
+}

@@ -1,0 +1,42 @@
+@special-green: #17da91;
+.reglog_wrapper {
+    height: 93vh;
+    background-image: url(.//img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    #reglog_box {
+        margin-top: 5%;
+        #greeting_text_h1 {
+            p {
+                font-size: 4em;
+                color: @special-green;
+            }
+        }
+        .greeting_text {
+            font-size: 2em;
+            span {
+                color: @special-green;
+            }
+        }
+        #modal_btn {
+            margin-top: 40px;
+            .btn_Signup,
+            .btn_Signin {
+                background-color: @special-green;
+                width: 180px;
+                padding: 15px;
+                color: white;
+                &:hover {
+                    background-color: #19C282;
+                }
+            }
+        }
+        #registration,
+        #login {
+            h3 {
+                color: @special-green;
+            }
+        }
+    }
+}

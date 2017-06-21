@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CoinKeeper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- Root-Model -->
+    <script src="scripts/app.js"></script>
+    <!-- urlRouterProvider -->
+    <script src="scripts/config.js"></script>
+    <!-- Userdata controllers -->
+    <script src="scripts/controllers/userdataCtrl.js"></script>
+    <!-- Registration & Login controllers -->
+    <script src="scripts/controllers/reglogCtrl.js"></script>
+    <!--  Factories -->
+    <script src="scripts/services/factory.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--  Castom Css -->
+    <link rel="stylesheet" href="style/css/navbar.css">
+    <link rel="stylesheet" href="style/css/reglog.css">
+    <base href="/">
+</head>
+
+<body ng-app="CoinKeeperApp">
+    <!-- Navigation & Userdata -->
+    <nav class="navbar navbar-default" id="navbar" ng-controller="userdataCtrl as userdata">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target="#myNavbar" ng-disabled="nav.hamburger_state">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <ul class="nav navbar-nav" ng-hide="nav.header_data">
+                <li><a>User: {{userdata.username}} {{userdata.usersurname}}</a></li>
+                <li><a>Balance: {{userdata.balance}} {{userdata.currency}}</a></li>
+                <li><a>Expences:0.00</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div ui-view></div>
+</body>
+
+</html>
