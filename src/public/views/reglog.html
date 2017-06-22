@@ -53,7 +53,7 @@
       </div>
       <div class="form-group">
        <label class="control-label" for="signupbalance">Balance</label>
-       <input id="signupBalance" type="number" class="form-control" ng-model="reglog.signupbalance" ng-focus="reglog.showSuggestions=true">
+       <input id="signupBalance" type="number" class="form-control" ng-model="reglog.signupbalance" ng-focus="reglog.showSuggestions=true" ng-trim="false">
       </div>
       <div class="form-group" ng-show="reglog.signupbalance">
       <label for="signupCurrency">Currency</label>
@@ -90,7 +90,7 @@
       </div>
       <div class="form-group" ng-class="{'has-error' : SignInForm.signinPassword.$invalid && !SignInForm.signinPassword.$pristine }">
        <label class="control-label"  for="signinPassword">Password</label>
-       <input id="signinPassword" type="password" name="signinPassword" class="form-control" ng-model="reglog.signinPassword" ng-minlength="6">
+       <input id="signinPassword" type="password" name="signinPassword" class="form-control" ng-model="reglog.signinPassword" ng-minlength="6" required>
         <p ng-show="SignInForm.signinPassword.$error.minlength" class="help-block">You password is no corect</p>
       </div>
       <div class="form-group">
